@@ -368,11 +368,15 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    function isNotNumber(str) {
+        return +str.replace(/\D/g, '');
+    };
+
     next.addEventListener('click', () => {
-        if (offset == +width.slice(0, width.length - 2) * (slides.length - 1)) { //500px
+        if (offset == isNotNumber(width) * (slides.length - 1)) { //500px
             offset = 0;
         } else {
-            offset += +width.slice(0, width.length - 2);
+            offset += isNotNumber(width);
         }
         slidesField.style.transform = `translateX(-${offset}px)`;
 
@@ -389,9 +393,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     prev.addEventListener('click', () => {
         if (offset == 0) { 
-            offset = +width.slice(0, width.length - 2) * (slides.length - 1);     //500px 
+            offset = isNotNumber(width) * (slides.length - 1);     //500px 
         } else {
-            offset -= +width.slice(0, width.length - 2);
+            offset -= isNotNumber(width);
         }
         slidesField.style.transform = `translateX(-${offset}px)`;
 
@@ -412,7 +416,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             slideIndex = slideTo;
 
-            offset = +width.slice(0, width.length - 2) * (slideTo - 1); 
+            offset = isNotNumber(width) * (slideTo - 1); 
 
             slidesField.style.transform = `translateX(-${offset}px)`;
 
@@ -422,7 +426,19 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    ///  CALC
 
+    const result = document.querySelector('.calculating__result span');
+    let sex, height, weight, age, ratio;
+
+    function calcTotal() {
+        if (!sex || !height || !weight || age || !ratio) {
+            result.textContent = 'Введите все данные';
+            return;
+        }
+
+        
+    };
 
 
 
