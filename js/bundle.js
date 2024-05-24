@@ -372,14 +372,14 @@ __webpack_require__.r(__webpack_exports__);
 function slider({container, slide, nextArrow, prevArrow, totalCounter, currentCounter, wrapper, field}) {
     /// SLIDER
 
-    const slides = document.querySelectorAll('.offer__slide'),
+    const slides = document.querySelectorAll(slide),
           slider = document.querySelector(container),
-          prev = document.querySelector('.offer__slider-prev'),
+          prev = document.querySelector(prevArrow),
           next = document.querySelector(nextArrow),
-          total = document.querySelector('#total'),
-          current = document.querySelector('#current'),
-          slidesWrapper = document.querySelector('.offer__slider-wrapper'),
-          slidesField = document.querySelector('.offer__slider-inner'),
+          total = document.querySelector(totalCounter),
+          current = document.querySelector(currentCounter),
+          slidesWrapper = document.querySelector(wrapper),
+          slidesField = document.querySelector(field),
           width = window.getComputedStyle(slidesWrapper).width;
         let slideIndex = 1;
         let offset = 0;
@@ -755,7 +755,12 @@ window.addEventListener('DOMContentLoaded', () => {
     (0,_modules_slider__WEBPACK_IMPORTED_MODULE_4__["default"])({
         container: '.offer__slider',
         nextArrow: '.offer__slider-next',
-        
+        prevArrow: '.offer__slider-prev',
+        slide: '.offer__slide',
+        totalCounter: '#total',
+        currentCounter: '#current',
+        wrapper: '.offer__slider-wrapper',
+        field: '.offer__slider-inner'   
     });
     (0,_modules_tabs__WEBPACK_IMPORTED_MODULE_5__["default"])('.tabheader__item', '.tabcontent', '.tabheader__items', 'tabheader__item_active');
     (0,_modules_timer__WEBPACK_IMPORTED_MODULE_6__["default"])('.timer', '2024-06-04');
