@@ -1,18 +1,27 @@
+        import  calc from './modules/calc';
+        import  cards from './modules/cards';
+        import  forms from './modules/forms';
+        import  modal from './modules/modal';
+        import  slider from './modules/slider';
+        import  tabs from './modules/tabs';
+        import timer from './modules/timer';
+        import { openModal } from './modules/modal';
+
 window.addEventListener('DOMContentLoaded', () => {
-    const calc = require('./modules/calc'),
-          cards = require('./modules/cards'),
-          forms = require('./modules/forms'),
-          modal = require('./modules/modal'),
-          slider = require('./modules/slider'),
-          tabs = require('./modules/tabs'),
-          timer = require('./modules/timer');
+
+    const modalTimerId = setTimeout(() => openModal('.modal', modalTimerId), 50000);
+        
     calc();
     cards();
-    forms();
-    modal();
-    slider();
-    tabs();
-    timer();
+    forms(modalTimerId);
+    modal('[data-modal]', '.modal', modalTimerId);
+    slider({
+        container: '.offer__slider',
+        nextArrow: '.offer__slider-next',
+        
+    });
+    tabs('.tabheader__item', '.tabcontent', '.tabheader__items', 'tabheader__item_active');
+    timer('.timer', '2024-06-04');
 
     
 
